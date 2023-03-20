@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 07:07 PM
+-- Generation Time: Mar 20, 2023 at 06:35 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -205,6 +205,34 @@ INSERT INTO `module` (`id`, `module`, `moduleid`) VALUES
 (5, 'Transport', 3),
 (6, 'Transport Misc', 33);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `temp_all_data`
+--
+
+CREATE TABLE `temp_all_data` (
+  `id` int(11) NOT NULL,
+  `sr_no` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `academic_year` varchar(255) DEFAULT NULL,
+  `session` varchar(255) NOT NULL,
+  `alloted_catagory` varchar(255) NOT NULL,
+  `voucher_type` varchar(255) NOT NULL,
+  `voucher_no` int(11) NOT NULL,
+  `roll_no` varchar(255) NOT NULL,
+  `admno` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `fee_catagory` varchar(255) NOT NULL,
+  `branch` varchar(255) NOT NULL,
+  `program` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `batch` varchar(255) NOT NULL,
+  `recipt_no` varchar(255) NOT NULL,
+  `fee_head` varchar(255) NOT NULL,
+  `amount` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -270,6 +298,12 @@ ALTER TABLE `module`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `temp_all_data`
+--
+ALTER TABLE `temp_all_data`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -332,6 +366,12 @@ ALTER TABLE `financial_transdetail`
 --
 ALTER TABLE `module`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `temp_all_data`
+--
+ALTER TABLE `temp_all_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -51,8 +51,17 @@ $allowed_extension = array('xls', 'csv', 'xlsx');
       $acadyear = $spreadsheet->getActiveSheet()->getCell('C' . $row)->getValue();
       $roll_no = $spreadsheet->getActiveSheet()->getCell('H' . $row)->getValue();
       $receipt_no = $spreadsheet->getActiveSheet()->getCell('P' . $row)->getValue();
+      $sr_no = $spreadsheet->getActiveSheet()->getCell('A' . $row)->getValue();
+      $alloted_catagory = $spreadsheet->getActiveSheet()->getCell('E' . $row)->getValue();
+      $status = $spreadsheet->getActiveSheet()->getCell('J' . $row)->getValue();
+      $program = $spreadsheet->getActiveSheet()->getCell('M' . $row)->getValue();
+      $department = $spreadsheet->getActiveSheet()->getCell('N' . $row)->getValue();
+      $batch = $spreadsheet->getActiveSheet()->getCell('O' . $row)->getValue();
 
 
+////// all_data table insert //////
+      $temp_sql = "INSERT INTO `temp_all_data`(`sr_no`, `date`, `academic_year`, `session`, `alloted_catagory`, `voucher_type`, `voucher_no`, `roll_no`, `admno`, `status`, `fee_catagory`, `branch`, `program`, `department`, `batch`, `recipt_no`, `fee_head`, `amount`) VALUES ($sr_no,'$trandate','$acadyear','$acadyear','$alloted_catagory','$voucher_type',$trans_id,'$roll_no','$admno','$status','$fee_catagory_data','$branch_data','$program','$department','$batch','$receipt_no','$fee_head',$amount)";
+      $mysqli->query($temp_sql);
       ////// branch table insert //////
       if(!in_array($branch_data,$branches_array)){
       $query = "insert into branches (branch_name) values('".$branch_data."')";
